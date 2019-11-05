@@ -2,17 +2,19 @@ package com.cg.ems.client.service;
 
 import java.util.List;
 
+
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.cg.ems.client.dto.Client;
 import com.cg.ems.client.exception.NoClientFoundException;
 import com.cg.ems.client.repo.ClientRepo;
 
-import ch.qos.logback.core.net.server.Client;
 @Service
-@Transactional
+@Transactional(rollbackOn = NoClientFoundException.class)
 public class ClientServiceImpl implements ClientService {
 
 	@Autowired

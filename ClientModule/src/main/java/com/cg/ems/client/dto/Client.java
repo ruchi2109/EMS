@@ -11,11 +11,11 @@ import javax.validation.constraints.Pattern;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-//@GenericGenerator(name = "client_code_seq", strategy = "increment")
+@GenericGenerator(name = "client_code_seq", strategy = "increment")
 @Table(name = "client")
 public class Client {
 	@Id
-	//@GeneratedValue(generator = "client_code_seq", strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(generator = "client_code_seq", strategy = GenerationType.SEQUENCE)
 	private int clientCode;
 	
 	@Pattern(regexp = "[A-Z][a-z]{2,15}")
@@ -24,6 +24,7 @@ public class Client {
 
 	private String clientCredibility;
 	
+	@NotBlank(message = "clientEmail is mandatory, cannot be null")
 	private String clientEmail;
 
 	@NotBlank(message = "ProjectName is mandatory, cannot be null")

@@ -2,9 +2,9 @@ package com.cg.ems.client.service;
 
 import java.util.List;
 
+import com.cg.ems.client.dto.Client;
 import com.cg.ems.client.exception.NoClientFoundException;
 
-import ch.qos.logback.core.net.server.Client;
 
 public interface ClientService {
 	
